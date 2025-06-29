@@ -1,50 +1,189 @@
-# Smart Search & Autocomplete System
 
-## Overview
-This project implements a smart search system similar to e-commerce platforms like Flipkart. It supports:
+<h1 align="center">🔍 Autocomplete Search System with Frequency Count</h1>
 
-- Trie-based autocomplete for fast prefix search
-- Frequency-based ranking of suggestions
-- Fuzzy search using Levenshtein edit distance for typo correction
-- LRU cache to remember recent search queries
-- Command-line interface demo for testing
+<div align="center">
+  <table>
+    <tr>
+      <td width="55%">
+        <h3><b>About the Project</b></h3>
+        <p>
+          This intelligent Python-based search engine combines a fast <strong>Trie data structure</strong> with <strong>fuzzy matching</strong> and an <strong>LRU Cache</strong> to create a real-time autocomplete experience. 
+          It accepts both <code>text</code> and <code>voice</code> inputs, ranks results by frequency, and offers search analytics.
+        </p>
+      </td>
+      
+  </table>
+</div>
 
-## Files
-- `trie.py`: Trie data structure for prefix storage and search
-- `fuzzy_search.py`: Levenshtein edit distance and fuzzy search
-- `lru_cache.py`: LRU cache implementation for recent queries
-- `search_engine.py`: Integrates components into a search engine
-- `main.py`: CLI interface to test the search system
-- `products.txt`: Sample product list used to initialize the trie
+---
 
-## How to Run
+## 📁 Project Structure
 
-1. Make sure you have Python 3 installed.
-
-2. Download all files in the same folder.
-
-3. Run the main program:
+```bash
+Autocomplete_search_system_with_frequency_count/
+├── main.py                # Entry point; handles user input and flow
+├── trie.py                # Implements the Trie data structure
+├── search_engine.py       # Handles frequency tracking and suggestions
+├── fuzzy_search.py        # Adds fuzzy matching functionality
+├── lru_cache.py           # Implements LRU caching for faster access
+├── products.txt           # Dataset of available product names
+└── README.md              # Project documentation (this file)
 ```
+
+---
+
+## ✅ Features
+
+- 🔤 Fast **prefix-based autocomplete** using Trie
+- 🧠 **Fuzzy matching** with Levenshtein distance (DP)
+- 📊 **Frequency-based search ranking**
+- ⚡ **LRU Cache** to optimize repeated queries
+- 🎤 **Voice recognition input** option
+- 📈 Built-in **search analytics dashboard**
+- 📄 Loads suggestions from a custom `products.txt` file
+
+---
+
+## 🧰 Tech Stack
+
+| Tool / Concept         | Description                        |
+|------------------------|------------------------------------|
+| 🐍 Python 3.x          | Programming Language               |
+| 📁 Standard Library     | No third-party packages needed     |
+| 🌳 Trie Structure       | For prefix-based autocomplete      |
+| 🔁 LRU Cache            | Speeds up recent query results     |
+| 🔡 Levenshtein Distance| Fuzzy matching implementation      |
+| 🎙️ Voice Input         | Voice-to-text feature (via `speech_recognition`) |
+
+---
+
+## ▶️ How to Run
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Technicalarpan/Autocomplete_search_system_with_frequency_count.git
+cd Autocomplete_search_system_with_frequency_count
+```
+
+### Step 2: Run the Program
+
+```bash
 python main.py
 ```
 
-4. Type search queries and see autocomplete suggestions.
+You can now type or speak your query and explore smart suggestions.
 
-5. Type `exit` to quit.
+---
 
-## How It Works
+## 💻 Sample Output
 
-- Products are loaded into a Trie for prefix searching.
-- Frequencies of product selections are tracked to rank suggestions.
-- If no exact prefix matches, fuzzy search suggests products within an edit distance of 2.
-- Recent searches are cached with an LRU cache and influence ranking.
+```
+Loading product list...
+Smart Search & Autocomplete System Initialized.
+Type your search query or 'voice' to speak, 'analytics' for stats, 'exit' to quit:
+Search: laptop
+Suggestions: ['laptop bag', 'laptop cooling pad', 'laptop backpack', 'laptop docking station', 'laptop charger']
+Selected: laptop bag
+```
 
-## Tech Stack & Concepts
-- Python 3
-- Data Structures: Trie, Heap, Doubly Linked List (for LRU Cache)
-- Algorithms: Levenshtein Edit Distance, Heap-based Top-K selection
-- Concepts: Autocomplete, Search Ranking, Caching
+### 🧠 Fuzzy Matching
 
-## License
-MIT License
-Created an autocomplete search engine that predicts product names from user input. It monitors search frequency for every term and orders suggestions so that the most searched ones are listed first. It also supports fuzzy search based on Levenshtein edit distance to support typos and offer relevant suggestions even with errors in the query. This optimizes user experience by offering quick, accurate, and intelligent search results.
+```
+Search: zeiss lenus
+Suggestions: ['zeiss lenses']
+Selected: zeiss lenses
+```
+
+### 🎤 Voice Input
+
+```
+Search: voice
+🎙️ Speak your search query...
+🗣️ You said: laptop
+Suggestions: ['laptop bag', 'laptop cooling pad', 'laptop backpack', 'laptop docking station', 'laptop charger']
+Selected: laptop bag
+```
+
+### 📊 Analytics Output
+
+```
+Search: analytics
+
+📊 Total Searches Made: 16
+🔝 Top searched products:
+1. laptop bag - 2 times 
+2. fitbit versa - 2 times 
+3. leica m10 - 2 times 
+4. bluetooth headset - 1 times 
+5. gopro hero 10 - 1 times 
+```
+
+---
+
+## ⚙️ How It Works
+
+| Module           | Responsibility                           |
+|------------------|-------------------------------------------|
+| `trie.py`        | Builds and manages the prefix tree        |
+| `fuzzy_search.py`| Matches similar inputs using edit distance |
+| `lru_cache.py`   | Optimizes performance with recent lookups |
+| `search_engine.py`| Handles ranking and history               |
+| `main.py`        | Orchestrates interaction, voice, and analytics |
+| `products.txt`   | Base product database                     |
+
+---
+
+## 📦 Requirements
+
+- Python 3.x  
+- Optional: `speech_recognition` for voice feature
+
+> ✅ No external libraries required unless you enable voice input
+
+---
+
+## 🧪 Sample Dataset
+
+Contents of `products.txt`:
+
+```
+iPhone 13
+iPhone 12
+iPhone Case
+Headphones
+Hair Dryer
+HDMI Cable
+Hard Disk
+Hat
+...
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.  
+Use, modify, and distribute freely.
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+---
+
+## 👨‍💻 Author
+
+| Name             | Contact Info                                  |
+|------------------|-----------------------------------------------|
+| Arpan Mukherjee | [@Technicalarpan](https://github.com/Technicalarpan) • techarpan1@gmail.com |
+
+---
+
+## ⭐ Give A Star
+
+If this project helped you, consider giving it a ⭐ on GitHub to help others discover it!
+
+---
+
+
+
+<h3 align="center">💫 Made with ❤️ by Arpan Mukherjee 💫</h3>

@@ -1,7 +1,7 @@
 def edit_distance(s1, s2):
     # Levenshtein distance DP implementation
-    m, n = len(s1), len(s2)
-    dp = [[0]*(n+1) for _ in range(m+1)]
+    m, n = len(s1), len(s2)  #Length of Strings
+    dp = [[0]*(n+1) for _ in range(m+1)] #Create DP Table
 
     for i in range(m+1):
         dp[i][0] = i
@@ -22,9 +22,9 @@ def fuzzy_search(query, candidates, max_dist=2):
     # Return candidates within max_dist edit distance from query
     result = []
     for word in candidates:
-        dist = edit_distance(query, word)
+        dist = edit_distance(query, word) # Compute edit distance
         if dist <= max_dist:
             result.append((word, dist))
     # Sort by distance and then alphabetically
     result.sort(key=lambda x: (x[1], x[0]))
-    return [word for word, dist in result]
+    return [word for word, dist in result] # Return list of words only
